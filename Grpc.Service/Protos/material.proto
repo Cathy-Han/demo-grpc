@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option csharp_namespace = "Grpc.Service";
+
+package material;
+
+// The greeting service definition.
+service material {
+  // Sends a greeting
+  rpc Add (MaterialModel) returns (MaterialReturn);
+  rpc Reduce (MaterialModel) returns (MaterialReturn);
+}
+
+// 物料模型
+message MaterialModel {
+  string sn = 1 ;
+  string keypart_no = 2 ;
+  int32 quantity = 3 ;
+}
+
+// 物料处理消息回复模型
+message MaterialReturn {
+  bool ret = 1 ;
+  int32 status = 2 ;
+  string message = 3 ;
+}
